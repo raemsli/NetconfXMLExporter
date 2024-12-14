@@ -11,6 +11,12 @@ The XML Exporter is written Pin ython and uses the following Libraries:
 1. Install Python Modules with "pip install lxml pydantic"
 2. Clone Project "git clone https://github.com/raemsli/NetconfXMLExporter/new/main?readme=1"
 
+## Workflow
+Here are described how the Exporter works
+#### to_xml
+
+#### to_basemodel
+
 ## Demo 1 - Convert a Pydantic Model into an Netconf conform XML 
 In this Repo is a short Demo of the Exporter. The Pydantic Models in this Repo are created with Pydantify and as base the Cisco Native and Openconfig YANG Models.
 To Export my Function, add this Code to your script:
@@ -28,3 +34,10 @@ from XMLExporter import xmlexporterclass
 
 emptymodel = Model()
 filledmodel = xmlexporterclass.to_basemodel(etree, emptymodel)
+
+
+## Limitations
+Here are some Limitations listed for the Functions:
+#### Function to_xml
+- The Pydantic Model needs to have the same Structure and Tags as the Netconf
+- 
