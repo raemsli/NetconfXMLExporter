@@ -104,7 +104,7 @@ class XMLModelConverter:
         return XMLModelConverter._renderingmodel(model, root)
 
 	
-	@staticmethod
+    @staticmethod
     def _to_dict(tree: etree.Element) -> dict:
         result = {}
         
