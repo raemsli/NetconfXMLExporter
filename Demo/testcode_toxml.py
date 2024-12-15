@@ -1,9 +1,9 @@
 from __future__ import annotations
 import xml.etree.ElementTree as ETree
 import re
-from .Modules.xmlexporter import XMLModelConverter
+from ..Code.xmlexporter import XMLModelConverter
 from xml.dom.minidom import parseString
-from .PydanticStructure.out import (
+from .Pydantic_Model.pydantic import (
     InterfaceContainer,
     NativeContainer,
     VlansContainer,
