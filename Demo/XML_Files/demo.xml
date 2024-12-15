@@ -1,0 +1,115 @@
+<?xml version="1.0" ?>
+<nc:config xmlns:nc="urn:ietf:params:xml:ns:netconf:base:1.0">
+	<native xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-native">
+		<interface>
+			<GigabitEthernet>
+				<name>1/0/14</name>
+				<switchport-config>
+					<switchport>
+						<mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<trunk/>
+						</mode>
+						<trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<allowed>
+								<vlan>
+									<vlans>1, 2, 3</vlans>
+								</vlan>
+							</allowed>
+						</trunk>
+					</switchport>
+				</switchport-config>
+			</GigabitEthernet>
+			<GigabitEthernet>
+				<name>1/0/15</name>
+				<switchport-config>
+					<switchport>
+						<mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<trunk/>
+						</mode>
+						<trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<allowed>
+								<vlan>
+									<vlans>1, 2, 3</vlans>
+								</vlan>
+							</allowed>
+						</trunk>
+					</switchport>
+				</switchport-config>
+			</GigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/2</name>
+				<switchport-config>
+					<switchport>
+						<mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<trunk/>
+						</mode>
+						<trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<allowed>
+								<vlan>
+									<vlans>1, 2, 3</vlans>
+								</vlan>
+							</allowed>
+						</trunk>
+					</switchport>
+				</switchport-config>
+			</TenGigabitEthernet>
+			<TenGigabitEthernet>
+				<name>1/0/3</name>
+				<switchport-config>
+					<switchport>
+						<mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<trunk/>
+						</mode>
+						<trunk xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<allowed>
+								<vlan>
+									<vlans>1, 2, 3</vlans>
+								</vlan>
+							</allowed>
+						</trunk>
+					</switchport>
+				</switchport-config>
+			</TenGigabitEthernet>
+			<FortyGigabitEthernet>
+				<name>1/0/4</name>
+				<switchport-config>
+					<switchport>
+						<mode xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<access/>
+						</mode>
+						<access xmlns="http://cisco.com/ns/yang/Cisco-IOS-XE-switch">
+							<allowed>
+								<vlan>
+									<vlans>2</vlans>
+								</vlan>
+							</allowed>
+						</trunk>
+					</switchport>
+				</switchport-config>
+			</FortyGigabitEthernet>
+		</interface>
+	</native>
+	<vlans xmlns="http://openconfig.net/yang/vlan">
+		<vlan>
+			<vlan-id>1</vlan-id>
+			<config>
+				<vlan-id>1</vlan-id>
+				<name>test</name>
+			</config>
+		</vlan>
+		<vlan>
+			<vlan-id>2</vlan-id>
+			<config>
+				<vlan-id>2</vlan-id>
+				<name>test</name>
+			</config>
+		</vlan>
+		<vlan>
+			<vlan-id>3</vlan-id>
+			<config>
+				<vlan-id>3</vlan-id>
+				<name>test</name>
+			</config>
+		</vlan>
+	</vlans>
+</nc:config>
