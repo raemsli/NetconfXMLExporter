@@ -90,7 +90,7 @@ def createModel():
                         name="1/0/5",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
-                                mode=ModeContainer(access=TrunkLeaf()),
+                                mode=ModeContainer(trunk=TrunkLeaf()),
                                 trunk=TrunkContainer(
                                     allowed=AllowedContainer(
                                         vlan=VlanContainer2(
@@ -105,7 +105,7 @@ def createModel():
                         name="1/0/7",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
-                                mode=ModeContainer(access=TrunkLeaf()),
+                                mode=ModeContainer(trunk=TrunkLeaf()),
                                 trunk=TrunkContainer(
                                     allowed=AllowedContainer(
                                         vlan=VlanContainer2(
