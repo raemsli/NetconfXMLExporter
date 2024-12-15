@@ -30,6 +30,8 @@ from Pydantic_Model.pydantic import (
 """
 
 def createModel():
+    ETree.register_namespace("nc", "urn:ietf:params:xml:ns:netconf:base:1.0")
+    
     model = Model(
         vlans=VlansContainer(
             vlan=[VlanListEntry2(
