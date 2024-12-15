@@ -24,18 +24,14 @@ In this Repo is a short Demo of the Exporter. The Pydantic Models in this Repo a
 To Export my Function, add this Code to your script:
 from XMLExporter import xmlexporterclass
 ```
-modelcreated = Model()
-xmlcontent = xmlexporterclass.to_xml()
-with open("netconf.xml", "w") as file:
-  file.write(xmlcontent)
+python3 testcode_toxml.py
 ```
 ## Demo 2 - Fill Data from a Netconf XML into a Pydantic Model.
 In this Repo is a short Demo of the Exporter. The Pydantic Models in this Repo are created with Pydantify and as base the Cisco Native and Openconfig YANG Models. The Netconf XML are exporter from a Cisco Catalyst Switch 9300.
 To Export my Function, add this Code to your script:
 from XMLExporter import xmlexporterclass
 ```
-emptymodel = Model()
-filledmodel = xmlexporterclass.to_basemodel(etree, emptymodel)
+python3 testcode_tobasemodel.py
 ```
 
 ## Limitations
@@ -44,3 +40,10 @@ Here are some Limitations listed for the Functions:
 #### Function to_xml
 - The Pydantic Model needs to have the same Structure as the Cisco Switch needs
 - Namespace of the Cisco Switch are often not the same as in the YANG Model listed
+
+#### Function to_basemodel
+- From the following Port Types must be at least 2:
+	- GigabitEthernet
+	- TenGigabitEthernet
+	- TwentyFiveGigabitEthernet
+	- FortyGigabitEthernet
