@@ -1,4 +1,5 @@
-from Pydantic_Model.pydantic import XMLModelConverter
+from Pydantic_Model.pydantic import Model
+from Code.xmlexporter import XMLModelConverter
 from Module.out import Model
 import xml.etree.ElementTree as ETree
 
