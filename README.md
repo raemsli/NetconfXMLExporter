@@ -14,8 +14,10 @@ The XML Exporter is written Pin ython and uses the following Libraries:
 ## Workflow
 Here are described how the Exporter works
 #### to_xml
+![image](Ressources/Flussdiagramm_toxml.png)
 
 #### to_basemodel
+![image](Ressources/Flussdiagramm_tobasemodel.png)
 
 ## Demo 1 - Convert a Pydantic Model into an Netconf conform XML 
 In this Repo is a short Demo of the Exporter. The Pydantic Models in this Repo are created with Pydantify and as base the Cisco Native and Openconfig YANG Models.
@@ -38,6 +40,7 @@ filledmodel = xmlexporterclass.to_basemodel(etree, emptymodel)
 
 ## Limitations
 Here are some Limitations listed for the Functions:
+
 #### Function to_xml
-- The Pydantic Model needs to have the same Structure and Tags as the Netconf
-- 
+- The Pydantic Model needs to have the same Structure as the Cisco Switch needs
+- Namespace of the Cisco Switch are often not the same as in the YANG Model listed
