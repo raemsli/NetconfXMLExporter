@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ETree
 import re
 from Code.xmlexporter import XMLModelConverter
 from xml.dom.minidom import parseString
-from .Pydantic_Model.pydantic import (
+from Pydantic_Model.pydantic import (
     InterfaceContainer,
     NativeContainer,
     VlansContainer,
