@@ -1,0 +1,525 @@
+submodule Cisco-IOS-XE-interfaces {
+  yang-version 1.1;
+  belongs-to Cisco-IOS-XE-native {
+    prefix ios;
+  }
+
+  organization
+    "Cisco Systems, Inc.";
+  contact
+    "Cisco Systems, Inc.
+     Customer Service
+
+     Postal: 170 W Tasman Drive
+     San Jose, CA 95134
+
+     Tel: +1 1800 553-NETS
+
+     E-mail: cs-yang@cisco.com";
+  description
+    "Cisco XE Native Interfaces Yang model.
+     Copyright (c) 2016-2023 by Cisco Systems, Inc.
+     All rights reserved.";
+
+  revision 2023-07-01 {
+    description
+      "- Added Macsec support
+       - Added hardening support for load-interval for FortyGigabitEthernet and HundredGigE interfaces
+       - Added async encapsulation support for serial interfaces
+       - Added mode for IPv4 virtual-reassembly
+       - Added support for IPv6 virtual-reassembly
+       - Added support for IPv4 reassembly
+       - Added support for IPv6 reassembly
+       - Added Bundle interface type
+       - Added the check of IP address on Sub Bundle interface";
+    cisco-semver:module-version "11.0.0";
+  }
+  revision 2023-03-01 {
+    description
+      "- Added WPAN/VWPAN Interface
+       - Modified lower limit and description for inactivity timer
+       - Removed interface dependency on vrf
+       - Added support for group-based-policy command
+       - Add ordering for main interface and sub interface
+       - Added tailf to restrict duplicate ipv6 address";
+    cisco-semver:module-version "10.2.0";
+  }
+  revision 2022-11-01 {
+    description
+      "- Update yang-version to 1.1
+       - Added LORAWAN Interface
+       - Added WPAN/VWPAN Interface";
+    cisco-semver:module-version "10.1.0";
+  }
+  revision 2022-07-01 {
+    description
+      "- Added PRP Interface
+       - Added NVE VxLAN over IPv6 configuration";
+    cisco-semver:module-version "10.0.0";
+  }
+  revision 2022-03-01 {
+    description
+      "- Updated must condition for ip address configuration under sub-interfaces
+       - Obsolete Standby redirect configuration in standby-list
+       - Added must constraint that will not allow to have secondary IP address same as primary IP address for an interface";
+    cisco-semver:module-version "9.0.0";
+  }
+  revision 2021-11-01 {
+    description
+      "- Updated pattern of key name in GigabitEthernet interfaces
+       - Added support for access-session host-mode multi-host peer
+       - Added RIP related configuration under interfaces
+       - Fixed Authentication configurations under RIP
+       - Added export name to interfaces
+       - Deprecated HSRP Authentication container and added choice
+       - Added prefix-name under ipv6 address
+       - Modified HSRP IP and IPv6 address container to support secondary addresses";
+    cisco-semver:module-version "8.0.0";
+  }
+  revision 2021-07-01 {
+    description
+      "- Added Interface Virtual multipoint interface
+       - Added load-interval command for virtual-template
+       - Added physical-interface command for virtual-template
+       - Added mode command in Interface Virtual multipoint interface
+       - Added L2LISP interface and subinterface
+       - Added srlg under interface
+       - Hardening of peer default IP address CLI
+       - Made second-dot1q optional under encapsulation dot1q chain
+       - update pattern of key name in ATM list
+       - keepalive model to have trim-default value with default true
+       - Removed the presence statement for source-guard and destination-guard
+       - Updated regular expression for port-channel-subinterface";
+    cisco-semver:module-version "7.0.0";
+  }
+  revision 2021-03-01 {
+    description
+      "- Added relay line encapsulation
+       - Add leaf clear-dont-fragment
+       - Change range for leaf name of interface Port-channel
+       - Added range for bandwidth qos-reference CLI
+       - Added bandwidth range for interfaces";
+    cisco-semver:module-version "6.0.0";
+  }
+  revision 2020-11-11 {
+    description
+      "- Added default true for 'ip redirects' and 'ipv6 redirects' CLI
+       - Added local-routing to nve vni mcast and ingress-replication grouping
+       - Updated interface description to 200 chars
+       - Added ip clear-dont-fragment under interface";
+    cisco-semver:module-version "5.0.0";
+  }
+  revision 2020-07-02 {
+    description
+      "- Initial revision for 17.3.2
+       - Added pattern for name for interface type ATM and ATM-subinterface";
+    cisco-semver:module-version "4.1.0";
+  }
+  revision 2020-07-01 {
+    description
+      "- Added cli-recursive-delete to serial interface
+       - Added interface type MFR and serial-subinterface
+       - Added network-broadcast
+       - Added ipv6 policy route-map under interface
+       - Added switchport-config to interface-common-grouping";
+    cisco-semver:module-version "4.0.0";
+  }
+  revision 2020-03-01 {
+    description
+      "- Added scada, raw-tcp and raw-udp encapsulations
+       - Added l2protocol forward and tunnel for more protocols
+       - Modified the order of containers within container switchport-wrapper";
+    cisco-semver:module-version "3.0.0";
+  }
+  revision 2019-11-01 {
+    description
+      "
+       - Address arp model gaps
+       - Add add/except/remove options for switchport trunk allowed vlan";
+    cisco-semver:module-version "2.0.0";
+  }
+  revision 2019-07-01 {
+    description
+      "- Establish semantic version baseline
+       - Added support for access-session inherit disable interface-template-sticky
+         and access-session inherit disable service-policy
+       - Change the IPv4/IPv6 MTU range
+       - Add FEC support
+       - Added support for ip mask-reply
+       - Fix access-session port-control type, add default value
+       - Add ingress-replication bgp signaled support under nve interface
+       - Add interface BD-VIF";
+    cisco-semver:module-version "1.0.0";
+  }
+  revision 2019-03-11 {
+    description
+      "Modified the leafref to leaf because of pyang issue";
+  }
+  revision 2019-02-08 {
+    description
+      "Added ISIS clns commands";
+  }
+  revision 2019-01-27 {
+    description
+      "changing ingress-replication from container back to leaf to take care of backward compatibility";
+  }
+  revision 2019-01-24 {
+    description
+      "Added leaf for App-hosting Gigabit Ethernet interface";
+  }
+  revision 2019-01-23 {
+    description
+      "Removed app redundancy restriction for IF mode redundancy CLIs";
+  }
+  revision 2018-12-14 {
+    description
+      "Add AppQoE interface support";
+  }
+  revision 2018-12-09 {
+    description
+      "Add support for access-session inherit disable autoconf cli";
+  }
+  revision 2018-12-05 {
+    description
+      "Updated the Dialer interface range in line with IOS <0..255>";
+  }
+  revision 2018-11-16 {
+    description
+      "Cleanup spelling errors in description statements";
+  }
+  revision 2018-11-08 {
+    description
+      "Support Wlan-GigabitEthernet interface for ISR1K platform";
+  }
+  revision 2018-10-31 {
+    description
+      "Fix ip address annotations, remove no-address container";
+  }
+  revision 2018-10-23 {
+    description
+      "Added redundancy group and rii commands inside interface";
+  }
+  revision 2018-10-17 {
+    description
+      "Add choice for encapsulation, only one encapsulation can be set per interface";
+  }
+  revision 2018-10-16 {
+    description
+      "Added Virtual-PPP interface support";
+  }
+  revision 2018-09-28 {
+    description
+      "Changed ip vrf forwarding from type leafref to string because pyang fails";
+  }
+  revision 2018-09-20 {
+    description
+      "Corrected some description end line characters";
+  }
+  revision 2018-09-07 {
+    description
+      "Add must constraint to vrf forwaring, on vrf address-family";
+  }
+  revision 2018-08-29 {
+    description
+      "added must constraint on no ip address";
+  }
+  revision 2018-08-23 {
+    description
+      "Add cli-diff-set-after to ip-mtu to enforce the dependency on mtu";
+  }
+  revision 2018-08-22 {
+    description
+      "Add ingress-replication bgp signaled support under nve interface";
+  }
+  revision 2018-08-12 {
+    description
+      "added must constraint on ip unnumbered on interface Dialer";
+  }
+  revision 2018-08-06 {
+    description
+      "Removed switchport trunk allowed vlan leaves add/remove/except";
+  }
+  revision 2018-08-03 {
+    description
+      "Added model for port-channel load-balancing";
+  }
+  revision 2018-07-24 {
+    description
+      "Added second-dot1q under encapsulation, added presence true under dampening";
+  }
+  revision 2018-07-17 {
+    description
+      "Range specified for interface Multilink changed to uint32";
+  }
+  revision 2018-07-16 {
+    description
+      "Added vif list in interface";
+  }
+  revision 2018-07-11 {
+    description
+      "Add .* to cli-preformatted, apply input validation to disallow new lines";
+  }
+  revision 2018-07-10 {
+    description
+      "Add interface vrf forwarding downstream. Increase hold-queue size.";
+  }
+  revision 2018-06-28 {
+    description
+      "added must constraints for deleting vrf, changing to switchport from no switchport";
+  }
+  revision 2018-06-15 {
+    description
+      "Interface secondary ip address: change mandatory to incomplete command";
+  }
+  revision 2018-06-10 {
+    description
+      "SDA source templates are missing models";
+  }
+  revision 2018-06-06 {
+    description
+      "Moving switchport part to Cisco-IOS-XE-switch-isr.yang";
+  }
+  revision 2018-05-30 {
+    description
+      "Move IPv6 dhcp container to after IPv6 config to avoid dependencies";
+  }
+  revision 2018-05-22 {
+    description
+      "Change switchport trunk allowed vlan to support leaf-list";
+  }
+  revision 2018-05-21 {
+    description
+      "Interface description: change cli-suppress-quotes to cli-preformatted";
+  }
+  revision 2018-05-10 {
+    description
+      "Add 'vxlan udp port' CLI under NVE interface";
+  }
+  revision 2018-04-30 {
+    description
+      "Adding leaf node for ATM subinterface creation";
+  }
+  revision 2018-04-27 {
+    description
+      "Add presence true to 'ip virtual-reassembly'";
+  }
+  revision 2018-03-18 {
+    description
+      "Added ip address annotations for mapping of ipv4 secondary addresses";
+  }
+  revision 2018-03-15 {
+    description
+      "host-reachability protocol bgp is added under nve interface ";
+  }
+  revision 2018-03-06 {
+    description
+      "Added dependencies between mtu and ipv4/ipv6 mtu";
+  }
+  revision 2018-02-08 {
+    description
+      "Add a type of Interface: Ethernet";
+  }
+  revision 2017-12-14 {
+    description
+      "Added Change interface Cellular name pattern";
+  }
+  revision 2017-11-27 {
+    description
+      "Added Change 25GE name";
+  }
+  revision 2017-10-30 {
+    description
+      "Fix out of sync between CDB and running config for interface mop enabled";
+  }
+  revision 2017-09-15 {
+    description
+      "This revison has changes for hte new 2gig interface addition";
+  }
+  revision 2017-08-30 {
+    description
+      "Move UTD interface support";
+  }
+  revision 2017-08-21 {
+    description
+      "Add HundredGigE interface support";
+  }
+  revision 2017-08-16 {
+    description
+      "This revision has changes for new 5gig and 25gig interfaces addition";
+  }
+  revision 2017-08-02 {
+    description
+      "Added Stackwise Virtual Interface commands";
+  }
+  revision 2017-07-31 {
+    description
+      "Add dependency between ip primary and secondary";
+  }
+  revision 2017-07-20 {
+    description
+      "Change mtu range";
+  }
+  revision 2017-07-07 {
+    description
+      "Add ipv6 source-guard support and storm-control broadcast/multicast falling-threshold for int gig";
+  }
+  revision 2017-06-28 {
+    description
+      "Add nve support for special interface ucse, Ethernet-Internal and Service-Engine";
+  }
+  revision 2017-06-27 {
+    description
+      "Extend FastEthernet and FortyGigabitEthernet to allow subinterfaces";
+  }
+  revision 2017-06-14 {
+    description
+      "Add nve support for ingress-replication";
+  }
+  revision 2017-06-01 {
+    description
+      "Add dependency for interface ip address to encapsulation/dot1Q";
+  }
+  revision 2017-05-11 {
+    description
+      "fix hold-queue to allow support for both in and out queues.";
+  }
+  revision 2017-04-20 {
+    description
+      "Added ipv6/tcp/adjust-mss support, fixed loopback dampening issue, fixed ipv6 address autoconfiguration issue";
+  }
+  revision 2017-04-17 {
+    description
+      "Addition of support for group-based policy command";
+  }
+  revision 2017-03-24 {
+    description
+      "Removed bandwidth range constraints";
+  }
+  revision 2017-03-04 {
+    description
+      "Changed LISP key type to string to support OC mapping, removed Fast/Forty Ethernet pattern";
+  }
+  revision 2017-02-07 {
+    description
+      "Initial revision";
+  }
+ grouping interface-switchport-grouping {
+    container switchport-config {
+      container switchport {
+        container mode {
+          description
+            "Set trunking mode of the interface";
+          leaf access {
+            description
+              "Set Mode Access";
+            type empty;
+          }
+
+          leaf trunk {
+            description
+              "Set Mode Trunk";
+            type empty;
+          } 
+        }
+        container access {
+          description
+            "Set access mode characteristics of the interface";
+          container vlan {
+            description
+              "Set access vlan of the interface";
+            leaf vlan {
+              description
+                "Set VLAN when interface is in access mode";
+              type uint16 {
+                range "1..4094";
+              }
+            }
+          }
+        }
+        container trunk {
+          description
+            "Set trunking characteristics of the interface";
+          container allowed {
+            description
+              "Set allowed VLAN characteristics when interface is in trunking mode";
+            container vlan {
+              description
+                "Set allowed VLANs when interface is in trunking mode";
+              leaf vlans {
+                description
+                  "Allow a single VLAN id (allowed value range 1-4094)
+                    or Comma-separated VLAN id range.
+                    e.g. 99 or 1-30 or  1-20,30,40-50";
+                type union {
+                  type uint16 {
+                    range "1..4094";
+                  }
+                  type string;
+                }
+              }
+            }
+          }
+        }
+        container native {
+          leaf vlan {
+            description
+              "Set VLAN when interface is in access mode";
+            type uint16 {
+              range "1..4094";
+            }
+          }
+        }
+      }
+    }
+  }
+  grouping config-interface-grouping {
+    container interface {
+      description
+        "Configure Interfaces";
+      list GigabitEthernet {
+        description
+          "GigabitEthernet IEEE 802.3z";
+        key "name";
+        leaf name {
+          type string {
+            pattern '(0|[1-9][0-9]*)(/(0|[1-9][0-9]*))*(\.[0-9]*)?';
+          }
+        }
+        uses interface-switchport-grouping;
+      }
+      list TenGigabitEthernet {
+        description
+          "Ten Gigabit Ethernet";
+        key "name";
+        leaf name {
+          type string {
+            pattern '(0|[1-9][0-9]*)(/(0|[1-9][0-9]*))*(\.[0-9]*)?';
+          }
+        }
+        uses interface-switchport-grouping;
+      }
+      list TwentyFiveGigE {
+        description
+          "Twenty Five Gigabit Ethernet";
+        key "name";
+        leaf name {
+          type string {
+            pattern '(0|[1-9][0-9]*)(/(0|[1-9][0-9]*))*(\.[0-9]*)?';
+          }
+        }
+        uses interface-switchport-grouping;
+      }
+      list FortyGigabitEthernet {
+        description
+          "Forty Gigabit Ethernet";
+        key "name";
+        leaf name {
+          type string {
+            pattern '(0|[1-9][0-9]*)(/(0|[1-9][0-9]*))*(\.[0-9]*)?';
+          }
+        }
+        uses interface-switchport-grouping;
+      }
+    }
+  }
+}
