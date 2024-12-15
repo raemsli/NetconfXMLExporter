@@ -147,11 +147,8 @@ class XMLModelConverter:
                         result[name] = [result[name]]
                     result[name].append(text)
                 else:
-                    result[name] = text
-
-                # Leeres Element: Speichere ein leeres Dictionary
-                if name not in result:
-                    result[name] = {}
+                    # Leeres Element: Speichere ein leeres Dictionary wenn kein Value
+                    result[name] = text if text else {}
 
         return result
 
