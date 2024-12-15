@@ -87,7 +87,7 @@ def createModel():
                 ],
                 ten_gigabit_ethernet=[
                     InterfaceListEntry(
-                        name="1/0/5",
+                        name="1/0/11",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(trunk=TrunkLeaf()),
@@ -102,7 +102,7 @@ def createModel():
                         ),
                     ),
                     InterfaceListEntry(
-                        name="1/0/7",
+                        name="1/0/12",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(trunk=TrunkLeaf()),
@@ -116,7 +116,71 @@ def createModel():
                             )
                         ),
                     ),
-                ]
+                ],
+                twenty_five_gig_e=[
+                    InterfaceListEntry(
+                        name="1/0/23",
+                        switchport_config=SwitchportConfigContainer(
+                            switchport=SwitchportContainer(
+                                mode=ModeContainer(trunk=TrunkLeaf()),
+                                trunk=TrunkContainer(
+                                    allowed=AllowedContainer(
+                                        vlan=VlanContainer2(
+                                            vlans="3,4,5"
+                                        )
+                                    )
+                                ),
+                            )
+                        ),
+                    ),
+                    InterfaceListEntry(
+                        name="1/0/24",
+                        switchport_config=SwitchportConfigContainer(
+                            switchport=SwitchportContainer(
+                                mode=ModeContainer(trunk=TrunkLeaf()),
+                                trunk=TrunkContainer(
+                                    allowed=AllowedContainer(
+                                        vlan=VlanContainer2(
+                                            vlans="3,4"
+                                        )
+                                    )
+                                ),
+                            )
+                        ),
+                    ),
+                ],
+                forty_gigabit_ethernet=[
+                    InterfaceListEntry(
+                        name="1/0/31",
+                        switchport_config=SwitchportConfigContainer(
+                            switchport=SwitchportContainer(
+                                mode=ModeContainer(trunk=TrunkLeaf()),
+                                trunk=TrunkContainer(
+                                    allowed=AllowedContainer(
+                                        vlan=VlanContainer2(
+                                            vlans="3,4,5"
+                                        )
+                                    )
+                                ),
+                            )
+                        ),
+                    ),
+                    InterfaceListEntry(
+                        name="1/0/32",
+                        switchport_config=SwitchportConfigContainer(
+                            switchport=SwitchportContainer(
+                                mode=ModeContainer(trunk=TrunkLeaf()),
+                                trunk=TrunkContainer(
+                                    allowed=AllowedContainer(
+                                        vlan=VlanContainer2(
+                                            vlans="3,4"
+                                        )
+                                    )
+                                ),
+                            )
+                        ),
+                    ),
+                ],
             )
         )
     )
