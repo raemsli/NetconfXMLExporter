@@ -1,10 +1,9 @@
 from Pydantic_Model.pydantic import XMLModelConverter
 from Module.out import Model
-import xml.etree.ElementTree as ET
+import xml.etree.ElementTree as ETree
 
-mo = Model()
-xmletree = ET.parse("XML_Files/demo.xml")
+emptymodel = Model()
+xmletree = ETree.parse("XML_Files/demo.xml")
+filledmodel = XMLModelConverter.to_basemodel(xmletree, emptymodel)
 
-mo2 = XMLModelConverter.to_basemodel(xmletree, mo)
-
-print("Finished")
+print(filledmodel)
