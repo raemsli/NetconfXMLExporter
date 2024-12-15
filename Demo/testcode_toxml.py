@@ -59,7 +59,7 @@ def createModel():
             interface=InterfaceContainer(
                 gigabit_ethernet=[
                     InterfaceListEntry(
-                        name="GigabitEthernet1/0/1",
+                        name="1/0/1",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=AccessLeaf()),
@@ -72,7 +72,7 @@ def createModel():
                         ),
                     ),
                     InterfaceListEntry(
-                        name="GigabitEthernet1/0/2",
+                        name="1/0/2",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=AccessLeaf()),
@@ -87,7 +87,7 @@ def createModel():
                 ],
                 ten_gigabit_ethernet=[
                     InterfaceListEntry(
-                        name="TenGigabitEthernet1/0/5",
+                        name="1/0/5",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=TrunkLeaf()),
@@ -102,7 +102,7 @@ def createModel():
                         ),
                     ),
                     InterfaceListEntry(
-                        name="TenGigabitEthernet1/0/7",
+                        name="1/0/7",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=TrunkLeaf()),
@@ -125,3 +125,6 @@ def createModel():
     xml_string = ETree.tostring(xmlcontent, encoding="unicode")
     print(parseString(xml_string).toprettyxml())
     return parseString(xml_string).toprettyxml()
+
+if __name__ == "__main__":
+    createModel()
