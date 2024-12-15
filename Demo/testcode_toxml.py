@@ -193,4 +193,7 @@ def createModel():
     return parseString(xml_string).toprettyxml()
 
 if __name__ == "__main__":
-    createModel()
+    with open(XML_Files/demo.xml", "w") as file:
+        file.write("createModel()")
+
+    
