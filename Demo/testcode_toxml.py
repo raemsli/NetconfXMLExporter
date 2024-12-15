@@ -2,7 +2,6 @@ from __future__ import annotations
 import xml.etree.ElementTree as ETree
 import re
 from .Modules.xmlexporter import XMLModelConverter
-from infrahub_sdk.transforms import InfrahubTransform
 from xml.dom.minidom import parseString
 from .PydanticStructure.out import (
     InterfaceContainer,
@@ -60,7 +59,7 @@ def createModel():
             interface=InterfaceContainer(
                 gigabit_ethernet=[
                     InterfaceListEntry(
-                        name="GigabitEthernet1/0/1,
+                        name="GigabitEthernet1/0/1",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=AccessLeaf()),
@@ -73,7 +72,7 @@ def createModel():
                         ),
                     ),
                     InterfaceListEntry(
-                        name="GigabitEthernet1/0/2,
+                        name="GigabitEthernet1/0/2",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=AccessLeaf()),
@@ -88,7 +87,7 @@ def createModel():
                 ],
                 ten_gigabit_ethernet=[
                     InterfaceListEntry(
-                        name="TenGigabitEthernet1/0/5,
+                        name="TenGigabitEthernet1/0/5",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=TrunkLeaf()),
@@ -103,7 +102,7 @@ def createModel():
                         ),
                     ),
                     InterfaceListEntry(
-                        name="TenGigabitEthernet1/0/7,
+                        name="TenGigabitEthernet1/0/7",
                         switchport_config=SwitchportConfigContainer(
                             switchport=SwitchportContainer(
                                 mode=ModeContainer(access=TrunkLeaf()),
