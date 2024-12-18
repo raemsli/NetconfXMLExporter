@@ -1,7 +1,7 @@
 from lxml import etree  # nosec B410
 from pydantic import BaseModel, RootModel
 from enum import Enum
-from typing import Any
+from typing import Dict, Any
 
 """
 Python Module to generate Netconf confirm XML Exporter.
@@ -71,7 +71,7 @@ class XMLModelConverter:
         elif isinstance(model, (str, int)):
             return model
         elif isinstance(model, Enum):
-            return model.value # type: ignore[no-any-return]
+            return model.value  # type: ignore[no-any-return]
         return None
 
     @staticmethod
@@ -99,15 +99,14 @@ class XMLModelConverter:
 
     @staticmethod
     def to_xml(model: BaseModel) -> etree.Element:
-        """Public Method to Describe the Namespace."""
+        """Public Method to convert Pydantic into Netconf XML."""
         root = etree.Element("{urn:ietf:params:xml:ns:netconf:base:1.0}config")
         return XMLModelConverter._renderingmodel(model, root)
 
-	
     @staticmethod
-    def _to_dict(tree: etree.Element) -> dict:
-        result = {}
-        
+    def _to_dict(tree: etree.Element) -> Dict[str, Any]:
+        result: Dict[str, Any] = {}
+
         # Iteriere über alle direkten Kinder
         for child in tree:
             name = child.tag.split("}", 1)[-1]  # Entferne Namespace
@@ -129,7 +128,7 @@ class XMLModelConverter:
 
             # Wenn das Element Kinder hat, rufe _to_dict rekursiv auf
             if len(child):
-                child_dict = XMLModelConverter._to_dict(child)
+                child_dict: Dict[str, Any] = XMLModelConverter._to_dict(child)
 
                 # Falls der Tag mehrfach vorkommt, speichere ihn in einer Liste
                 if name in result:
@@ -139,8 +138,8 @@ class XMLModelConverter:
                 else:
                     result[name] = child_dict
             else:
-                # Kein Kind, speichere Textinhalt                  
-                
+                # Kein Kind, speichere Textinhalt
+
                 # Falls der Tag mehrfach vorkommt, speichere ihn in einer Liste
                 if name in result:
                     if not isinstance(result[name], list):
@@ -152,8 +151,8 @@ class XMLModelConverter:
 
         return result
 
-
     @staticmethod
     def to_basemodel(tree: etree.Element, model: BaseModel) -> BaseModel:
+        """Public Method to convert Neconf XML into Pydantic Model."""
         dict = XMLModelConverter._to_dict(tree.getroot())
         return model.model_validate(dict)
